@@ -1,0 +1,196 @@
+/* The specimen's own chrome reads the generated tokens, so a broken export shows here first. */
+@import "tailwindcss";
+@import "../tokens/theme.css";
+@custom-variant dark (&:is(.dark *));
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+p,
+figure,
+pre {
+  margin: 0;
+}
+
+::selection {
+  background: var(--brand);
+  color: var(--primary-foreground);
+}
+
+.frame {
+  max-width: var(--spacing-content-max);
+  margin-inline: auto;
+  padding: 0 clamp(var(--spacing-gutter-md), 4.7vw, var(--spacing-gutter-lg)) var(--spacing-section-md);
+}
+
+.label {
+  font-size: var(--text-label-sm);
+  letter-spacing: var(--tracking-label-sm);
+}
+
+.note {
+  font-size: var(--text-body-md);
+  color: var(--muted-foreground);
+  max-width: 46ch;
+}
+
+.masthead {
+  padding-block: var(--spacing-section-sm) var(--spacing-gap-lg);
+}
+
+.masthead h1 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(46px, 4.5vw, var(--text-headline-xl));
+  letter-spacing: var(--tracking-headline-xl);
+  line-height: 1.04;
+  margin-block: var(--spacing-gap-sm);
+}
+
+.block {
+  border-top: 1px solid var(--border);
+  padding-block: var(--spacing-gap-md) var(--spacing-section-sm);
+}
+
+.block-head {
+  display: grid;
+  grid-template-columns: 1fr 2.55fr;
+  gap: var(--spacing-gap-md);
+  margin-bottom: var(--spacing-gap-lg);
+}
+
+strong {
+  font-weight: 500;
+}
+
+figcaption,
+.type-meta,
+.space-row {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--text-body-sm);
+}
+
+figcaption span,
+.type-meta span,
+.space-row span {
+  color: var(--muted-foreground);
+}
+
+.swatches,
+.radii,
+.components {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-gap-md);
+}
+
+.chip {
+  height: 96px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+
+.type-row {
+  display: grid;
+  grid-template-columns: 1fr 2.55fr;
+  gap: var(--spacing-gap-md);
+  align-items: baseline;
+  padding-block: var(--spacing-gap-sm);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.radius-box {
+  height: 96px;
+  background: var(--accent);
+  margin-bottom: 12px;
+}
+
+.space-row {
+  display: grid;
+  grid-template-columns: 1fr 120px 2fr;
+  align-items: center;
+  gap: var(--spacing-gap-sm);
+  padding-block: 6px;
+}
+
+.bar-track {
+  overflow: hidden;
+}
+
+.bar {
+  height: 10px;
+  max-width: none;
+  background: var(--brand);
+}
+
+.components {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.component {
+  border-top: 1px solid var(--border);
+  padding-top: var(--spacing-gap-sm);
+}
+
+.component-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  padding: var(--spacing-gap-sm);
+  background: var(--muted);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.component-preview {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  outline: 1px dashed var(--border);
+  overflow: hidden;
+}
+
+.component-meta {
+  font: var(--text-body-sm) / 1.5 "Instrument Sans", system-ui, sans-serif;
+  color: var(--muted-foreground);
+  white-space: pre-wrap;
+  padding-top: 12px;
+}
+
+@media (max-width: 760px) {
+  .frame {
+    padding-inline: var(--spacing-gutter-sm);
+  }
+
+  .block-head,
+  .type-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .space-row {
+    grid-template-columns: 1fr 80px;
+  }
+
+  .bar-track {
+    grid-column: 1 / -1;
+  }
+}

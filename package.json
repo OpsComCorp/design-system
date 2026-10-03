@@ -1,0 +1,30 @@
+{
+  "name": "@opscom/design-system",
+  "version": "0.2.0",
+  "private": true,
+  "description": "OpsCom design system: DESIGN.md is the source; tokens/ is generated from it; the Vite page is its specimen.",
+  "type": "module",
+  "packageManager": "pnpm@12.4.2",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm tokens && vite",
+    "build": "pnpm tokens && vite build",
+    "preview": "vite preview",
+    "tokens": "node scripts/build-theme.ts",
+    "lint": "design.md lint DESIGN.md",
+    "typecheck": "tsc --noEmit",
+    "verify": "pnpm lint && pnpm typecheck && pnpm tokens && pnpm test && vite build",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "@google/design.md": "0.4.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.19.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5",
+    "vite": "^8.3.2",
+    "yaml": "^2.9.1"
+  }
+}
