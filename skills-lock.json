@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-dx-cli-scale": {
+      "source": "jpoehnelt/skills",
+      "sourceType": "github",
+      "skillPath": "agent-dx-cli-scale/SKILL.md",
+      "computedHash": "1d2aa0d3cfa03501af8656283631b61f572f6458ed7958f232f8acd5601386fa"
+    },
+    "ink": {
+      "source": "vercel-labs/json-render",
+      "sourceType": "github",
+      "skillPath": "skills/ink/SKILL.md",
+      "computedHash": "c9c5320c208e406cf0621d3843b14dcabb04934360d8ce816f29600394b2478f"
+    },
+    "tdd-red-green-refactor": {
+      "source": "google-labs-code/stitch-sdk",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/tdd/SKILL.md",
+      "computedHash": "100869961c315decdb1ad3d003ffa7e0a11efaceb3c5d15bde00e04a38b98e52"
+    },
+    "typed-service-contracts": {
+      "source": "google-labs-code/stitch-sdk",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/typed-service-contract/SKILL.md",
+      "computedHash": "929e9f90618f5f8ea79962eb3d5a1c1540058532108a2ad624e95e7a42f7d8cd"
+    }
+  }
+}
