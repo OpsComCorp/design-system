@@ -1,0 +1,26 @@
+# `pnpm verify` on Woodpecker CI (https://ci.opscom.io): DESIGN.md lint, types,
+# token generation, the shadcn/Tailwind compatibility tests and the specimen
+# build. It runs on every PR and every master push.
+#
+# The agent caps every step container at 2 CPUs / 6 GB
+# (WOODPECKER_BACKEND_DOCKER_LIMIT_* on the agent).
+when:
+  - event: pull_request
+  - event: push
+    branch: master
+  - event: manual
+
+steps:
+  - name: verify
+    # Matches the Node the repo is developed on; package.json requires >=24.
+    image: node:24.21.0
+    environment:
+      COREPACK_ENABLE_DOWNLOAD_PROMPT: "0"
+    commands:
+      # corepack reads the pnpm version from package.json "packageManager".
+      - corepack enable pnpm
+      - pnpm install --frozen-lockfile
+      - pnpm verify
+      # `pnpm verify` regenerates tokens/theme.css before testing it, so a stale
+      # committed copy would pass. Apps copy the committed file: fail if it drifted.
+      - git diff --exit-code -- tokens/ || (echo "tokens/theme.css is stale - run 'pnpm tokens' and commit it" && exit 1)
