@@ -237,13 +237,9 @@ contrast (a 12px uppercase label next to a 76px headline) and from the imagery, 
 color. There is one working color, a blue, and it appears only where something is
 interactive or selected.
 
-**Scope.** These tokens come from the opscom.io homepage
-(`landing-v3/components/world-landing/world-landing.css`) and match what the live page
-computes. Other landing-v3 routes still carry older, route-scoped palettes and are not
-described here: the buyer journey (`/mct`, `/organizations`, `/pricing`, `/providers`),
-the First Watch content pages (`/about`, `/contact`, legal, `/droneops`), `/brief`,
-`/future` and `/first-watch`. Use this file for new work. Don't copy values from those
-routes into it.
+**Scope.** These tokens come from the opscom.io homepage and match what the live page
+computes. Other pages on the site still carry older, page-scoped palettes and are not
+described here. Use this file for new work. Don't copy values from those pages into it.
 
 **shadcn/ui.** Most consumers are shadcn apps on Tailwind v4. `tokens/theme.css`, generated
 from this file, supplies every variable shadcn expects. shadcn components then render in
@@ -273,9 +269,8 @@ dark band. Put `class="dark"` on a section for a band, or on `<html>` for a whol
 - **Blue** (`brand`, #3859e8): selected tab, button hover, focus ring, text selection.
   Never decorative, and never a resting fill. 5.03:1 on Paper.
 - **Rust** (`destructive`, #a44832): delete actions and form errors. It does not appear on
-  the homepage. It is taken from the approved buyer-journey palette
-  (`landing-v3/components/buyer-journey/buyer-journey.css`) because shadcn needs a
-  destructive color. 5.33:1 on Paper.
+  the homepage. It is taken from an approved older OpsCom palette because shadcn
+  needs a destructive color. 5.33:1 on Paper.
 - **Glass** (`glass`, #ffffffed): a button laid over photography.
 
 Dark (`.dark`), from the homepage's "Today, a browser. Tomorrow, step inside." band:
@@ -289,8 +284,7 @@ Dark (`.dark`), from the homepage's "Today, a browser. Tomorrow, step inside." b
   progress track. It also serves as the dark hover and quiet fill.
 - **Periwinkle** (`brand-dark`, #8a9eff): the highlighted second headline line, and the dark
   focus ring. Chapter progress fills with #aebaff.
-- **Coral** (`destructive-dark`, #ff8a6b): dark errors, from landing-v3's First Watch alert
-  color. 7.69:1 on Night.
+- **Coral** (`destructive-dark`, #ff8a6b): dark errors, from an existing OpsCom alert color. 7.69:1 on Night.
 
 shadcn variables that would only repeat a value above are not separate tokens.
 `tokens/theme.css` derives them as follows:
@@ -311,10 +305,10 @@ with an 8px blur.
 ## Typography
 
 Two faces. **Archivo** (weight 500) sets every h1–h3. **Instrument Sans** (weight 400) sets
-everything else. landing-v3 self-hosts Instrument Sans under the name "OpsCom Instrument".
+everything else. The live site self-hosts Instrument Sans under the name "OpsCom Instrument".
 There is no monospace face on this page.
 
-Weights are only ever 400 and 500. landing-v3's `app/globals.css` forces
+Weights are only ever 400 and 500. The site's global stylesheet forces
 `font-weight: 400 !important` on every element and 500 on h1–h6. Any heavier weight in a
 component stylesheet never renders.
 
@@ -374,7 +368,7 @@ button uses a 14px backdrop blur, and the dialog backdrop uses 8px.
 - **lg** (16px): the product panel.
 - **xl** (18px): the screenshot dialog.
 - **2xl** (22px): the hero world stage and the film frame. This drops to 15px on phones.
-- **full**: every button. landing-v3 writes 50px or 100px, which renders the same at
+- **full**: every button. The site writes 50px or 100px, which renders the same at
   these heights.
 
 Large media is rounded. Text containers are not: cards are open columns separated by

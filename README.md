@@ -2,7 +2,7 @@
 
 [`DESIGN.md`](DESIGN.md) describes how OpsCom looks, following the
 [DESIGN.md spec](https://stitch.withgoogle.com/docs/design-md/specification). Its tokens and
-rules come from the opscom.io homepage in `landing-v3`. Color names follow shadcn/ui.
+rules come from the opscom.io homepage. Color names follow shadcn/ui.
 
 ```sh
 pnpm install
