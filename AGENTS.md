@@ -43,5 +43,8 @@ pnpm test       # node --test: shadcn/Tailwind compatibility
 pnpm verify     # lint, typecheck, tokens, test, build — run before declaring work done
 ```
 
+CI: `.woodpecker/verify.yaml` on https://ci.opscom.io runs `pnpm verify` on every PR and master
+push, then fails if the committed `tokens/theme.css` differs from a fresh `pnpm tokens`.
+
 pnpm 12.4.2, Node >= 24 (runs `.ts` scripts directly). The specimen loads Archivo and
 Instrument Sans from Google Fonts.
